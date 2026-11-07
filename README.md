@@ -2,7 +2,7 @@
 
 # Weather Dashboard
 
-Dashboard cuaca **responsif** — cari kota mana pun di dunia dan lihat kondisi saat ini, per jam, dan prakiraan 5 hari.
+A **responsive** weather dashboard — search any city and see current conditions, an hourly breakdown, and a 5-day forecast.
 
 [![Status](https://img.shields.io/badge/status-complete-brightgreen?style=flat-square)](#)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
@@ -11,36 +11,38 @@ Dashboard cuaca **responsif** — cari kota mana pun di dunia dan lihat kondisi 
 
 **Demo:** [m-cuaca.netlify.app](https://m-cuaca.netlify.app)
 
+**English** · [Bahasa Indonesia](README.id.md)
+
 </div>
 
 ---
 
-## Tentang
+## About
 
-Aplikasi cuaca yang fokus pada **kejelasan data**. Alih-alih menumpuk grafik, informasi disusun berlapis: kondisi saat ini sebagai fokus utama, lalu detail (kelembapan, angin, tekanan), kemudian prakiraan per jam dan 5 hari. Latar belakang berubah mengikuti cuaca dan waktu setempat.
+A weather app built around **clarity of data**. Rather than stacking charts, the information is layered: current conditions as the focal point, then the details (humidity, wind, pressure), then hourly and 5-day forecasts. The background shifts with the weather and time of day.
 
-## Fitur
+## Features
 
-- Satu search bar untuk cuaca kota mana pun.
-- Kartu kondisi saat ini: suhu, kondisi langit, kelembapan, dan kecepatan angin.
-- Prakiraan per jam dengan scroll horizontal (`useHorizontalScroll`).
-- Prakiraan 5 hari dengan ikon kondisi.
-- Latar berubah mengikuti cuaca dan waktu lewat `getBackground()`, dengan transisi 1 detik.
-- Dark mode mengikuti `prefers-color-scheme`.
+- One search bar for any city.
+- Current-conditions card: temperature, sky condition, humidity, and wind speed.
+- Hourly forecast with horizontal scrolling (`useHorizontalScroll`).
+- 5-day forecast with condition icons.
+- Background changes with weather and time via `getBackground()`, with a 1-second transition.
+- Dark mode follows `prefers-color-scheme`.
 
 ## Tech Stack
 
-| Bagian | Teknologi |
+| Layer | Technology |
 | --- | --- |
 | Framework | React 18 + Vite |
 | Styling | Tailwind CSS |
 | Data | [OpenWeatherMap API](https://openweathermap.org/api) |
-| Ikon | Lucide React / FontAwesome |
-| Deploy | Netlify + GitHub Pages |
+| Icons | Lucide React / FontAwesome |
+| Deployment | Netlify + GitHub Pages |
 
-## Menjalankan
+## Getting Started
 
-### 1. Clone & install
+### 1. Clone and install
 
 ```bash
 git clone https://github.com/Ilhamaji/weather-dashboard.git
@@ -50,50 +52,50 @@ npm install
 
 ### 2. API key
 
-Daftar gratis di [OpenWeatherMap](https://openweathermap.org/api), lalu buat `.env`:
+Sign up for free at [OpenWeatherMap](https://openweathermap.org/api), then create `.env`:
 
 ```env
 VITE_OPENWEATHER_API_KEY=your_api_key_here
 ```
 
-### 3. Jalankan
+### 3. Run
 
 ```bash
 npm run dev
 ```
 
-## Struktur
+## Project Layout
 
 ```
 src/
-  App.jsx                      # komposisi halaman
+  App.jsx                      # page composition
   hooks/
-    useWeather.js              # fetch current + forecast (hook mendukung query maupun koordinat)
-    useHorizontalScroll.js     # scroll per jam
+    useWeather.js              # fetch current + forecast (accepts a query or coordinates)
+    useHorizontalScroll.js     # hourly scrolling
   components/
-    SearchBar.jsx              # pencarian kota
-    CurrentWeather.jsx         # kartu kondisi saat ini
-    WeatherDetails.jsx         # kelembapan, angin, tekanan
-    HourlyForecast.jsx         # prakiraan per jam
-    Forecast.jsx               # prakiraan 5 hari
-    About.jsx                  # info & credit
+    SearchBar.jsx              # city search
+    CurrentWeather.jsx         # current-conditions card
+    WeatherDetails.jsx         # humidity, wind, pressure
+    HourlyForecast.jsx         # hourly forecast
+    Forecast.jsx               # 5-day forecast
+    About.jsx                  # info and credits
 ```
 
-## Endpoint yang Dipakai
+## Endpoints Used
 
 ```http
 GET /data/2.5/weather?q={city}&appid={key}&units=metric
 GET /data/2.5/forecast?q={city}&appid={key}&units=metric
 ```
 
-Hook `useWeather` juga menerima `{lat, lon}` sebagai pengganti `q`, tapi UI saat ini hanya memakai pencarian nama kota.
+The `useWeather` hook also accepts `{lat, lon}` in place of `q`, but the UI currently only uses city-name search.
 
-## Lisensi
+## License
 
-MIT — lihat file `LICENSE`.
+MIT — see the `LICENSE` file.
 
 ---
 
 <div align="center">
-Dibuat oleh <a href="https://github.com/Ilhamaji">Ilham Aji</a>
+Built by <a href="https://github.com/Ilhamaji">Ilham Aji</a>
 </div>
